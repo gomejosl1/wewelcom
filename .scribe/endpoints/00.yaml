@@ -76,36 +76,36 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: 'Juan Pérez'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: kunde.eloisa@example.com
+        example: 'juan.perez@example.com'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: '4[*UyPJ"}6'
+        example: 'Contraseña123!'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: vmqeopfuudtdsufvyvddq
-      email: kunde.eloisa@example.com
-      password: '4[*UyPJ"}6'
+      name: 'Juan Pérez'
+      email: 'juan.perez@example.com'
+      password: 'Contraseña123!'
     fileParameters: []
     responses: []
     responseFields: []
@@ -143,25 +143,25 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: qkunze@example.com
+        example: 'admin@example.com'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'O[2UZ5ij-e/dl4m{o,'
+        example: 'password'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: qkunze@example.com
-      password: 'O[2UZ5ij-e/dl4m{o,'
+      email: 'admin@example.com'
+      password: 'password'
     fileParameters: []
     responses: []
     responseFields: []
@@ -342,70 +342,70 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: 'Restaurante Ejemplo'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       address:
         name: address
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: amniihfqcoynlazghdtqt
+        example: 'Calle Ejemplo 123'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       phone:
         name: phone
         description: 'Must not be greater than 20 characters.'
         required: true
-        example: qxbajwbpilpmufinl
+        example: '1234567890'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: false
-        example: imogene.mante@example.com
+        example: 'restaurante.ejemplo@example.com'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       description:
         name: description
         description: ''
         required: false
-        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        example: 'Descripción del restaurante'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       cuisine_type:
         name: cuisine_type
         description: 'Must not be greater than 100 characters.'
         required: false
-        example: dtdsufvyvddqamniihfqc
+        example: 'Italiana'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       rating:
         name: rating
         description: 'Must be at least 0. Must not be greater than 5.'
         required: false
-        example: 3
+        example: 4
         type: number
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       active:
@@ -415,17 +415,17 @@ endpoints:
         example: true
         type: boolean
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: vmqeopfuudtdsufvyvddq
-      address: amniihfqcoynlazghdtqt
-      phone: qxbajwbpilpmufinl
-      email: imogene.mante@example.com
-      description: 'Dolores dolorum amet iste laborum eius est dolor.'
-      cuisine_type: dtdsufvyvddqamniihfqc
-      rating: 3
+      name: 'Restaurante Ejemplo'
+      address: 'Calle Ejemplo 123'
+      phone: '1234567890'
+      email: 'restaurante.ejemplo@example.com'
+      description: 'Descripción del restaurante'
+      cuisine_type: 'Italiana'
+      rating: 4
       active: true
     fileParameters: []
     responses: []
@@ -475,70 +475,70 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: 'Restaurante Ejemplo'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       address:
         name: address
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: amniihfqcoynlazghdtqt
+        example: 'Calle Ejemplo 123'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       phone:
         name: phone
         description: 'Must not be greater than 20 characters.'
         required: true
-        example: qxbajwbpilpmufinl
+        example: '1234567890'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: false
-        example: imogene.mante@example.com
+        example: 'restaurante.ejemplo@example.com'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       description:
         name: description
         description: ''
         required: false
-        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        example: 'Descripción del restaurante'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       cuisine_type:
         name: cuisine_type
         description: 'Must not be greater than 100 characters.'
         required: false
-        example: dtdsufvyvddqamniihfqc
+        example: 'Italiana'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       rating:
         name: rating
         description: 'Must be at least 0. Must not be greater than 5.'
         required: false
-        example: 3
+        example: 4
         type: number
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
       active:
@@ -548,17 +548,17 @@ endpoints:
         example: true
         type: boolean
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: vmqeopfuudtdsufvyvddq
-      address: amniihfqcoynlazghdtqt
-      phone: qxbajwbpilpmufinl
-      email: imogene.mante@example.com
-      description: 'Dolores dolorum amet iste laborum eius est dolor.'
-      cuisine_type: dtdsufvyvddqamniihfqc
-      rating: 3
+      name: 'Restaurante Ejemplo'
+      address: 'Calle Ejemplo 123'
+      phone: '1234567890'
+      email: 'restaurante.ejemplo@example.com'
+      description: 'Descripción del restaurante'
+      cuisine_type: 'Italiana'
+      rating: 4
       active: true
     fileParameters: []
     responses: []
