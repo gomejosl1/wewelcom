@@ -47,6 +47,12 @@ php artisan config:clear
 php artisan cache:clear
 php artisan optimize
 
+# Limpiar la caché de Scribe antes de regenerar la documentación
+echo "Limpiando caché de Scribe..."
+rm -rf .scribe/endpoints.cache
+rm -rf public/docs
+rm -rf resources/views/scribe
+
 # Generar documentación con Scribe (fuerza HTTPS)
 php artisan vendor:publish --tag=scribe-assets --force
 php artisan scribe:generate
