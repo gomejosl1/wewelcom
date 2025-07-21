@@ -43,10 +43,28 @@ php artisan optimize
 php artisan vendor:publish --tag=scribe-assets --force
 php artisan scribe:generate
 
-# Corregir URL en el archivo JavaScript de Scribe para Try It Out
-echo "Corrigiendo URLs en archivos JavaScript de Scribe..."
+# Corregir URL en los archivos generados por Scribe para Try It Out
+echo "Corrigiendo URLs en archivos generados por Scribe..."
+
+# Reemplazar en archivos JavaScript (con diferentes formatos de escape)
 find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|https\\:\\/\\/localhost\\:8000|https\\:\\/\\/wewelcom-production.up.railway.app|g' {} \;
+find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|http\\:\\/\\/localhost\\:8000|https\\:\\/\\/wewelcom-production.up.railway.app|g' {} \;
+find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|https://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|http://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|localhost:8000|wewelcom-production.up.railway.app|g' {} \;
+
+# Reemplazar en archivos HTML y PHP
 find resources/views/scribe -name "*.blade.php" -type f -exec sed -i 's|https://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find resources/views/scribe -name "*.blade.php" -type f -exec sed -i 's|http://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find resources/views/scribe -name "*.blade.php" -type f -exec sed -i 's|localhost:8000|wewelcom-production.up.railway.app|g' {} \;
+find public/docs -name "*.html" -type f -exec sed -i 's|https://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/docs -name "*.html" -type f -exec sed -i 's|http://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/docs -name "*.html" -type f -exec sed -i 's|localhost:8000|wewelcom-production.up.railway.app|g' {} \;
+
+# Reemplazar en archivos JSON
+find public/docs -name "*.json" -type f -exec sed -i 's|https://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/docs -name "*.json" -type f -exec sed -i 's|http://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+find public/docs -name "*.json" -type f -exec sed -i 's|localhost:8000|wewelcom-production.up.railway.app|g' {} \;
 
 # Migraciones y seeders
 php artisan migrate --force
