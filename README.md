@@ -11,7 +11,6 @@ Este proyecto es una API RESTful para gestionar restaurantes, desarrollada con L
 - Operaciones CRUD completas para restaurantes
 - Autenticación mediante API Key en header `X-API-KEY`
 - Documentación automática con Scribe
-- Frontend sencillo con Vue.js para consumir la API
 - Containerización con Docker
 - Validación de datos y manejo de errores
 
@@ -63,7 +62,6 @@ El script realiza automáticamente las siguientes acciones:
 ## Acceso a la Aplicación
 
 - **API y Documentación**: http://localhost:8000/docs
-- **Frontend**: http://localhost:8000/frontend
 
 ## Autenticación
 
@@ -99,7 +97,7 @@ Usa la API Key recibida en el header `X-API-KEY` para las operaciones que requie
 - `database/migrations`: Migraciones de la base de datos
 - `database/seeders`: Seeders para poblar la base de datos
 - `routes/api.php`: Rutas de la API
-- `frontend`: Interfaz de usuario para consumir la API
+
 
 ## Despliegue en Railway
 
