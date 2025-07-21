@@ -2,6 +2,14 @@
 
 echo "📌 Configurando Laravel para producción en Railway..."
 
+# Depurar variables de entorno de MySQL
+echo "Variables de entorno de MySQL:"
+echo "MYSQLHOST: ${MYSQLHOST}"
+echo "MYSQLPORT: ${MYSQLPORT}"
+echo "MYSQLDATABASE: ${MYSQLDATABASE}"
+echo "MYSQLUSER: ${MYSQLUSER}"
+echo "MYSQLPASSWORD: ${MYSQLPASSWORD:0:3}***"
+
 # Crear .env con valores fijos para asegurar que funcione
 cat > .env << EOL
 APP_NAME=Laravel
@@ -14,11 +22,11 @@ LOG_CHANNEL=stack
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=mysql.railway.internal
-DB_PORT=3306
-DB_DATABASE=railway
-DB_USERNAME=root
-DB_PASSWORD=mRPFItrbSmEtbdDFPAAAnQMvPmlRTVVf
+DB_HOST=${MYSQLHOST:-127.0.0.1}
+DB_PORT=${MYSQLPORT:-3306}
+DB_DATABASE=${MYSQLDATABASE:-railway}
+DB_USERNAME=${MYSQLUSER:-root}
+DB_PASSWORD=${MYSQLPASSWORD:-password}
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
