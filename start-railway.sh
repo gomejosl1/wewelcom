@@ -43,6 +43,11 @@ php artisan optimize
 php artisan vendor:publish --tag=scribe-assets --force
 php artisan scribe:generate
 
+# Corregir URL en el archivo JavaScript de Scribe para Try It Out
+echo "Corrigiendo URLs en archivos JavaScript de Scribe..."
+find public/vendor/scribe -name "*.js" -type f -exec sed -i 's|https\\:\\/\\/localhost\\:8000|https\\:\\/\\/wewelcom-production.up.railway.app|g' {} \;
+find resources/views/scribe -name "*.blade.php" -type f -exec sed -i 's|https://localhost:8000|https://wewelcom-production.up.railway.app|g' {} \;
+
 # Migraciones y seeders
 php artisan migrate --force
 php artisan db:seed --force
