@@ -14,19 +14,25 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Crear un usuario administrador con API key
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-            'api_key' => Str::random(32),
-            'email_verified_at' => now(),
-        ]);
+        // Crear un usuario administrador con API key solo si no existe
+        if (!User::where('email', 'admin@example.com')->exists()) {
+            User::create([
+                'name' => 'Admin',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('password'),
+                'api_key' => Str::random(32),
+                'email_verified_at' => now(),
+            ]);
+        }
 
-        // Crear algunos usuarios adicionales
-        User::factory(5)->create()->each(function ($user) {
-            $user->api_key = Str::random(32);
-            $user->save();
-        });
+        // Crear algunos usuarios adicionales (solo si tenemos menos de 6 usuarios en total)
+        $userCount = User::count();
+        if ($userCount < 6) {
+            $usersToCreate = 6 - $userCount;
+            User::factory($usersToCreate)->create()->each(function ($user) {
+                $user->api_key = Str::random(32);
+                $user->save();
+            });
+        }
     }
 }
