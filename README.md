@@ -101,6 +101,41 @@ Usa la API Key recibida en el header `X-API-KEY` para las operaciones que requie
 - `routes/api.php`: Rutas de la API
 - `frontend`: Interfaz de usuario para consumir la API
 
+## Despliegue en Railway
+
+Para desplegar esta aplicación en Railway, sigue estos pasos:
+
+1. Crea una cuenta en [Railway](https://railway.app/) si aún no tienes una
+
+2. Instala la CLI de Railway:
+   ```bash
+   npm i -g @railway/cli
+   ```
+
+3. Inicia sesión en Railway desde la terminal:
+   ```bash
+   railway login
+   ```
+
+4. Crea un nuevo proyecto en Railway:
+   ```bash
+   railway init
+   ```
+
+5. Configura las variables de entorno necesarias en el panel de Railway:
+   - `APP_KEY`: Genera una con `php artisan key:generate --show`
+   - `APP_ENV`: production
+   - `APP_DEBUG`: false
+   - `DB_CONNECTION`: mysql
+   - `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`: Railway los proporciona automáticamente
+
+6. Despliega la aplicación:
+   ```bash
+   railway up
+   ```
+
+7. Una vez desplegada, puedes acceder a la URL proporcionada por Railway
+
 ## Licencia
 
 Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
