@@ -54,6 +54,10 @@ EOL\n\
 php artisan config:clear\n\
 php artisan cache:clear\n\
 \n\
+# Publicar assets estáticos\n\
+php artisan vendor:publish --tag=scribe-assets --force\n\
+php artisan storage:link\n\
+\n\
 # Optimizar la aplicación\n\
 php artisan optimize\n\
 \n\
