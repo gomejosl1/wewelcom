@@ -55,8 +55,9 @@ RUN echo '#!/bin/bash' > /var/www/start.sh && \
     echo 'php artisan config:clear' >> /var/www/start.sh && \
     echo 'php artisan cache:clear' >> /var/www/start.sh && \
     echo '' >> /var/www/start.sh && \
-    echo '# Publicar assets estáticos' >> /var/www/start.sh && \
+    echo '# Publicar assets estáticos y regenerar documentación' >> /var/www/start.sh && \
     echo 'php artisan vendor:publish --tag=scribe-assets --force' >> /var/www/start.sh && \
+    echo 'php artisan scribe:generate' >> /var/www/start.sh && \
     echo 'php artisan storage:link' >> /var/www/start.sh && \
     echo '' >> /var/www/start.sh && \
     echo '# Optimizar la aplicación' >> /var/www/start.sh && \
