@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     libzip-dev \
-    nginx
+    nginx \
+    supervisor
 
 # Limpiar cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -20,6 +21,11 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Obtener Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Configurar nginx
+COPY nginx.conf /etc/nginx/sites-available/default
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Establecer directorio de trabajo
 WORKDIR /var/www
@@ -34,8 +40,14 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
+# Crear script de inicio
+RUN echo '#!/bin/bash\n\
+service nginx start\n\
+php-fpm' > /start.sh \
+    && chmod +x /start.sh
+
 # Exponer puerto
-EXPOSE 8000
+EXPOSE 80
 
 # Comando para iniciar la aplicación
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD ["/start.sh"]
