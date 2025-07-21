@@ -17,89 +17,59 @@ Este proyecto es una API RESTful para gestionar restaurantes, desarrollada con L
 
 ## Requisitos
 
-- PHP 8.1 o superior
-- Composer
-- MySQL
-- Docker y Docker Compose (opcional)
+- Docker y Docker Compose (recomendado)
+- O alternativamente: PHP 8.1+, Composer y MySQL
 
-## Instalación
-
-### Instalación Local
+## Instalación Rápida con Docker
 
 1. Clonar el repositorio:
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/gomejosl1/wewelcom.git
    cd wewelcom
    ```
 
-2. Instalar dependencias:
-   ```bash
-   composer install
-   ```
-
-3. Configurar el archivo .env:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-
-4. Configurar la base de datos en el archivo .env
-
-5. Ejecutar migraciones y seeders:
-   ```bash
-   php artisan migrate --seed
-   ```
-
-6. Generar documentación con Scribe:
-   ```bash
-   php artisan scribe:generate
-   ```
-
-7. Iniciar el servidor:
-   ```bash
-   php artisan serve
-   ```
-
-### Instalación con Docker
-
-1. Clonar el repositorio:
-   ```bash
-   git clone <url-del-repositorio>
-   cd wewelcom
-   ```
-
-2. Configurar el archivo .env:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Iniciar los contenedores Docker:
+2. Ejecutar el script de inicio (hace todo automáticamente):
    ```bash
    chmod +x docker-compose/scripts/start.sh
    ./docker-compose/scripts/start.sh
    ```
 
-## Uso
+El script realiza automáticamente las siguientes acciones:
+- Configura los permisos necesarios
+- Inicia los contenedores Docker
+- Instala dependencias de Composer
+- Genera la clave de la aplicación
+- Ejecuta migraciones y seeders
+- Genera la documentación con Scribe
 
-### Documentación de la API
+## Instalación Manual (sin Docker)
 
-La documentación de la API está disponible en:
+1. Clonar el repositorio y configurar:
+   ```bash
+   git clone https://github.com/gomejosl1/wewelcom.git
+   cd wewelcom
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-- Instalación local: http://localhost:8000/api/documentation
-- Instalación con Docker: http://localhost:8000/api/documentation
+2. Configurar la base de datos en el archivo `.env` y luego:
+   ```bash
+   php artisan migrate --seed
+   php artisan scribe:generate
+   php artisan serve
+   ```
 
-### Frontend
+## Acceso a la Aplicación
 
-El frontend está disponible en:
+- **API y Documentación**: http://localhost:8000/docs
+- **Frontend**: http://localhost:8000/frontend
 
-- Instalación local: http://localhost:8000/frontend
-- Instalación con Docker: http://localhost:8000/frontend
+## Autenticación
 
-### Autenticación
+Para obtener una API Key, utiliza uno de estos endpoints:
 
-Para autenticarte y obtener una API Key:
-
-1. Registra un nuevo usuario:
+1. Registro de nuevo usuario:
    ```
    POST /api/auth/register
    {
@@ -110,16 +80,16 @@ Para autenticarte y obtener una API Key:
    }
    ```
 
-2. O inicia sesión si ya tienes una cuenta:
+2. Inicio de sesión:
    ```
    POST /api/auth/login
    {
-     "email": "tu@email.com",
-     "password": "tu_contraseña"
+     "email": "admin@example.com",
+     "password": "password"
    }
    ```
 
-3. Usa la API Key recibida en el header `X-API-KEY` para las operaciones que requieren autenticación.
+Usa la API Key recibida en el header `X-API-KEY` para las operaciones que requieren autenticación.
 
 ## Estructura del Proyecto
 
