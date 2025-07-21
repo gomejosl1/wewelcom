@@ -47,15 +47,22 @@ php artisan config:clear
 php artisan cache:clear
 php artisan optimize
 
-# Limpiar la caché de Scribe antes de regenerar la documentación
+# Limpiar la caché de Scribe de forma segura
 echo "Limpiando caché de Scribe..."
-rm -rf .scribe/endpoints.cache
-rm -rf public/docs
-rm -rf resources/views/scribe
+# Asegurarse de que los directorios existan
+mkdir -p .scribe/endpoints.cache
+mkdir -p public/docs
+mkdir -p resources/views/scribe
+
+# Forzar la regeneración completa de la documentación
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
 
 # Generar documentación con Scribe (fuerza HTTPS)
 php artisan vendor:publish --tag=scribe-assets --force
-php artisan scribe:generate
+php artisan scribe:generate --force
 
 # Corregir URL en los archivos generados por Scribe para Try It Out
 echo "Corrigiendo URLs en archivos generados por Scribe..."
