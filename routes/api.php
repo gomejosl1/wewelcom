@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\RestaurantController;
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('api.key')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// Rutas de autenticación
+Route::prefix('auth')->group(function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::middleware('api.key')->post('regenerate-api-key', [AuthController::class, 'regenerateApiKey']);
+});
+
+// Rutas públicas para la API de restaurantes (solo lectura)
+Route::get('restaurants', [RestaurantController::class, 'index']);
+Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
+
+// Rutas protegidas por API Key para la API de restaurantes (escritura)
+Route::middleware('api.key')->group(function () {
+    Route::post('restaurants', [RestaurantController::class, 'store']);
+    Route::put('restaurants/{id}', [RestaurantController::class, 'update']);
+    Route::delete('restaurants/{id}', [RestaurantController::class, 'destroy']);
 });

@@ -1,66 +1,136 @@
+# API RESTful de Restaurantes con Laravel
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción
 
-## About Laravel
+Este proyecto es una API RESTful para gestionar restaurantes, desarrollada con Laravel 10 y MySQL. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre restaurantes, con autenticación mediante API Key y documentación automática con Scribe.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Características
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Operaciones CRUD completas para restaurantes
+- Autenticación mediante API Key en header `X-API-KEY`
+- Documentación automática con Scribe
+- Frontend sencillo con Vue.js para consumir la API
+- Containerización con Docker
+- Validación de datos y manejo de errores
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requisitos
 
-## Learning Laravel
+- PHP 8.1 o superior
+- Composer
+- MySQL
+- Docker y Docker Compose (opcional)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalación
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Instalación Local
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clonar el repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   cd wewelcom
+   ```
 
-## Laravel Sponsors
+2. Instalar dependencias:
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Configurar el archivo .env:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-### Premium Partners
+4. Configurar la base de datos en el archivo .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+5. Ejecutar migraciones y seeders:
+   ```bash
+   php artisan migrate --seed
+   ```
 
-## Contributing
+6. Generar documentación con Scribe:
+   ```bash
+   php artisan scribe:generate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Iniciar el servidor:
+   ```bash
+   php artisan serve
+   ```
 
-## Code of Conduct
+### Instalación con Docker
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Clonar el repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   cd wewelcom
+   ```
 
-## Security Vulnerabilities
+2. Configurar el archivo .env:
+   ```bash
+   cp .env.example .env
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Iniciar los contenedores Docker:
+   ```bash
+   chmod +x docker-compose/scripts/start.sh
+   ./docker-compose/scripts/start.sh
+   ```
 
-## License
+## Uso
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Documentación de la API
+
+La documentación de la API está disponible en:
+
+- Instalación local: http://localhost:8000/api/documentation
+- Instalación con Docker: http://localhost:8000/api/documentation
+
+### Frontend
+
+El frontend está disponible en:
+
+- Instalación local: http://localhost:8000/frontend
+- Instalación con Docker: http://localhost:8000/frontend
+
+### Autenticación
+
+Para autenticarte y obtener una API Key:
+
+1. Registra un nuevo usuario:
+   ```
+   POST /api/auth/register
+   {
+     "name": "Tu Nombre",
+     "email": "tu@email.com",
+     "password": "tu_contraseña",
+     "password_confirmation": "tu_contraseña"
+   }
+   ```
+
+2. O inicia sesión si ya tienes una cuenta:
+   ```
+   POST /api/auth/login
+   {
+     "email": "tu@email.com",
+     "password": "tu_contraseña"
+   }
+   ```
+
+3. Usa la API Key recibida en el header `X-API-KEY` para las operaciones que requieren autenticación.
+
+## Estructura del Proyecto
+
+- `app/Http/Controllers/API`: Controladores de la API
+- `app/Models`: Modelos de la aplicación
+- `.scribe`: Archivos de configuración y ejemplos para la documentación con Scribe
+- `database/migrations`: Migraciones de la base de datos
+- `database/seeders`: Seeders para poblar la base de datos
+- `routes/api.php`: Rutas de la API
+- `frontend`: Interfaz de usuario para consumir la API
+
+## Licencia
+
+Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).

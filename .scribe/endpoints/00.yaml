@@ -1,0 +1,618 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"success":false,"message":"API Key inv\u00e1lida"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With, X-API-KEY, Accept, Origin'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Registrar un nuevo usuario y generar API Key.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: kunde.eloisa@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: '4[*UyPJ"}6'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: vmqeopfuudtdsufvyvddq
+      email: kunde.eloisa@example.com
+      password: '4[*UyPJ"}6'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Iniciar sesión y obtener API Key.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: qkunze@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: 'O[2UZ5ij-e/dl4m{o,'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: qkunze@example.com
+      password: 'O[2UZ5ij-e/dl4m{o,'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/regenerate-api-key
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Regenerar API Key para el usuario autenticado.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/restaurants
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mostrar un listado de todos los restaurantes.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"data":[{"id":2,"name":"Hickle, Treutel and Hahn","address":"76720 Weissnat Ford\nSouth Dalton, ND 92181","phone":"407-831-0068","email":"myrtis43@example.net","description":"Et culpa ad veritatis et et iusto eum. Sapiente placeat debitis totam totam ratione. Nesciunt ut debitis perferendis ut at ab. Assumenda quo autem similique dolores autem corporis omnis.","cuisine_type":"India","rating":"3.8","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":3,"name":"Davis-Vandervort","address":"19963 Wintheiser Rest\nJermeyport, AL 40048","phone":"(419) 673-6629","email":"bailee40@example.net","description":"Nihil facere occaecati dolore perferendis recusandae. Rerum aut quo doloremque. Vero voluptatem voluptatum doloribus est veritatis voluptates corrupti accusantium. Vitae eum vel atque praesentium corporis. Est corporis quaerat sunt tenetur saepe at distinctio aut.","cuisine_type":"Francesa","rating":"4.1","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":4,"name":"Kuhlman-Kovacek","address":"41328 Kris Causeway Apt. 085\nNorth Adalbertotown, IA 73612-6080","phone":"+1 (352) 660-7154","email":"arnold.durgan@example.org","description":"Tempora non distinctio quidem debitis quia voluptatem quis neque. Necessitatibus assumenda sit ea maxime at sit voluptatem. Omnis occaecati dignissimos et qui qui consequatur. Assumenda tempora doloribus nam sunt amet.","cuisine_type":"Mexicana","rating":"3.5","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":6,"name":"Hudson-Hansen","address":"934 Eddie Meadow\nBaumbachbury, AK 94684-2002","phone":"+1-202-865-4761","email":"mstrosin@example.com","description":"Distinctio quos alias non est. Ratione aspernatur dolore id. Sit possimus ut dicta.","cuisine_type":"Americana","rating":"2.8","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":7,"name":"Labadie LLC","address":"4045 Kihn Mountains\nPort Ruby, IL 72961-9426","phone":"+12395661075","email":"cronin.liana@example.net","description":"Qui optio numquam rerum facere est quasi animi. Nam odit tenetur quae consectetur aliquam. Tenetur aut repellendus esse ducimus quia. Eos autem unde nemo.","cuisine_type":"Mexicana","rating":"3.9","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":8,"name":"Heller-Bogan","address":"82225 Francesco Village Suite 051\nDeckowshire, WV 17264","phone":"+1-747-795-2430","email":"lbode@example.org","description":"Exercitationem fugiat dolores qui odio iusto rerum a est. Voluptatem natus vel at temporibus unde velit. Enim amet et eos possimus neque. Provident cumque quo dolores laborum id aliquam corrupti.","cuisine_type":"Francesa","rating":"3.8","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":9,"name":"Dickens Group","address":"307 Kilback Courts\nNelsonborough, ME 66791","phone":"1-775-436-3988","email":"eward@example.com","description":"Aut ut modi omnis suscipit ut. Cupiditate aspernatur occaecati blanditiis occaecati ducimus. Ex facere ipsam autem veritatis.","cuisine_type":"Francesa","rating":"4.9","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":10,"name":"Brekke, Bogan and Hansen","address":"89867 Haag Tunnel\nAlessandroton, MO 91299","phone":"(334) 953-6715","email":"pagac.marilyne@example.net","description":"Dolor ex nam cupiditate accusamus. Quis necessitatibus totam dolor laudantium. Dolor dolores autem quas accusamus necessitatibus maxime aspernatur.","cuisine_type":"Francesa","rating":"3.5","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":11,"name":"Brakus-Reichert","address":"37180 Huels Tunnel\nSelmerborough, NV 90209-8880","phone":"(872) 202-3960","email":"adrain99@example.com","description":"Consequatur officia beatae sint soluta reprehenderit veritatis. Eum eos et laborum et quasi aut et. Sequi ab culpa atque iusto.","cuisine_type":"Japonesa","rating":"3.6","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":12,"name":"Boyer, Kovacek and Ortiz","address":"4701 Bailey Views Apt. 073\nCorkeryfurt, CT 15293-8302","phone":"1-314-348-0821","email":"kunze.abby@example.net","description":"Et error maiores dolorem nesciunt officiis nostrum. Magnam ut et rem in. Adipisci et amet quo asperiores veritatis. Sequi recusandae nesciunt beatae.","cuisine_type":"Japonesa","rating":"1.0","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":13,"name":"Keebler, Douglas and Ryan","address":"36779 Gutkowski Plains Apt. 725\nClarissaville, VT 59558-9981","phone":"585-747-9233","email":"mfeeney@example.org","description":"Eveniet ut facere nobis doloremque. Voluptatibus laudantium magnam neque quia. Iste qui iste veritatis repellat voluptatem est enim. Sed quos aut ut.","cuisine_type":"India","rating":"1.7","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":14,"name":"Dach Group","address":"2228 Winston Run\nWest Haskell, NY 01683-9113","phone":"+15678973552","email":"rolfson.milton@example.org","description":"Ratione quibusdam delectus voluptatum repellat molestias exercitationem. Aliquid adipisci velit ipsam eos accusamus fuga. Omnis dignissimos est et sint sit dolor quia quo. Perferendis iste dolores inventore velit.","cuisine_type":"Italiana","rating":"2.3","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":15,"name":"Homenick-Watsica","address":"8850 Annie Green\nEast Julienchester, SD 13525","phone":"+1.765.206.8056","email":"cbrakus@example.net","description":"Laudantium et laudantium et. Sint et et a ut esse.","cuisine_type":"Mexicana","rating":"1.6","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":16,"name":"Sporer, Schuppe and Grimes","address":"715 Oral Estates Suite 633\nGriffinview, VT 81367","phone":"+1-845-826-1917","email":"nicole89@example.net","description":"Quod quos enim qui numquam quia. Occaecati fugiat eos laborum. Odio et eligendi qui voluptate.","cuisine_type":"China","rating":"2.6","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":17,"name":"Hackett and Sons","address":"4095 Donnelly Pike\nChasityshire, IA 83862-8746","phone":"+1 (217) 392-8757","email":"reid.kuhic@example.com","description":"Possimus pariatur rem vel ea ut omnis debitis. Iure voluptatibus praesentium recusandae totam. Est consectetur eum doloremque neque maxime.","cuisine_type":"India","rating":"1.9","active":false,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":18,"name":"Kiehn, Schoen and Baumbach","address":"181 Elenora Way\nJuniormouth, MT 27985-0944","phone":"1-845-532-7489","email":"janie81@example.net","description":"Consequuntur repellat doloribus eligendi quibusdam dolor aut amet provident. Vel ratione doloribus quo sint. Sint totam quis beatae et.","cuisine_type":"Francesa","rating":"3.7","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":19,"name":"Krajcik PLC","address":"64106 Maria Locks Suite 803\nRoyalfurt, RI 35697","phone":"+1 (938) 200-7353","email":"balistreri.levi@example.com","description":"Sint sunt qui ex temporibus sint molestiae. Et deleniti architecto consectetur id. Alias ipsum temporibus provident dolores non eos. Facilis dolore magnam perspiciatis expedita.","cuisine_type":"Japonesa","rating":"4.4","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":20,"name":"Rice and Sons","address":"998 Rogahn Fall\nMichealbury, AL 39754","phone":"+1 (414) 665-9098","email":"thomas70@example.com","description":"Consequuntur itaque odio repellendus aut quo tempore necessitatibus. Assumenda est voluptas dolor cum qui ipsa voluptatem. Unde excepturi quisquam totam quam atque. Quis fugiat temporibus eveniet.","cuisine_type":"Americana","rating":"1.1","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},{"id":21,"name":"Restaurante Actualizado","address":"Nueva Direcci\u00f3n 456","phone":"+34 698765432","email":"nuevo@restauranteejemplo.com","description":"Descripci\u00f3n actualizada del restaurante","cuisine_type":"Italiana","rating":"4.8","active":true,"created_at":"2025-07-20T23:12:55.000000Z","updated_at":"2025-07-20T23:13:42.000000Z"}],"message":"Restaurantes recuperados con \u00e9xito"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With, X-API-KEY, Accept, Origin'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/restaurants/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mostrar el restaurante especificado.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the restaurant.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"data":{"id":2,"name":"Hickle, Treutel and Hahn","address":"76720 Weissnat Ford\nSouth Dalton, ND 92181","phone":"407-831-0068","email":"myrtis43@example.net","description":"Et culpa ad veritatis et et iusto eum. Sapiente placeat debitis totam totam ratione. Nesciunt ut debitis perferendis ut at ab. Assumenda quo autem similique dolores autem corporis omnis.","cuisine_type":"India","rating":"3.8","active":true,"created_at":"2025-07-20T22:05:53.000000Z","updated_at":"2025-07-20T22:05:53.000000Z"},"message":"Restaurante recuperado con \u00e9xito"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+          access-control-allow-methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+          access-control-allow-headers: 'Content-Type, Authorization, X-Requested-With, X-API-KEY, Accept, Origin'
+          access-control-allow-credentials: 'true'
+          access-control-max-age: '86400'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/restaurants
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Almacenar un nuevo restaurante en la base de datos.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: amniihfqcoynlazghdtqt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'Must not be greater than 20 characters.'
+        required: true
+        example: qxbajwbpilpmufinl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: imogene.mante@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cuisine_type:
+        name: cuisine_type
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rating:
+        name: rating
+        description: 'Must be at least 0. Must not be greater than 5.'
+        required: false
+        example: 3
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: vmqeopfuudtdsufvyvddq
+      address: amniihfqcoynlazghdtqt
+      phone: qxbajwbpilpmufinl
+      email: imogene.mante@example.com
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      cuisine_type: dtdsufvyvddqamniihfqc
+      rating: 3
+      active: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/restaurants/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Actualizar el restaurante especificado en la base de datos.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the restaurant.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: amniihfqcoynlazghdtqt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'Must not be greater than 20 characters.'
+        required: true
+        example: qxbajwbpilpmufinl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: imogene.mante@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cuisine_type:
+        name: cuisine_type
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rating:
+        name: rating
+        description: 'Must be at least 0. Must not be greater than 5.'
+        required: false
+        example: 3
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: vmqeopfuudtdsufvyvddq
+      address: amniihfqcoynlazghdtqt
+      phone: qxbajwbpilpmufinl
+      email: imogene.mante@example.com
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      cuisine_type: dtdsufvyvddqamniihfqc
+      rating: 3
+      active: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/restaurants/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Eliminar el restaurante especificado de la base de datos.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      X-API-KEY: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the restaurant.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - X-API-KEY
+      - 3V5EgbkvZcDPa166h8fd4ae
+    controller: null
+    method: null
+    route: null
+    custom: []
